@@ -10,10 +10,17 @@
 ## Usage
 
 ```bash
+cd ${DIRECTORY_YOU_WISH_TO_CREATE_THE_SALT-FORMULA_IN}
+```
+
+Run
+
+```bash
 cookiecutter https://github.com/ministryofjustice/cookiecutter-salt-formula.git
 ```
 
-This will clone `cookiecutter-salt-formula` in your `~/.cookiecutters` directory.
+This will clone `cookiecutter-salt-formula` in your `~/.cookiecutters` directory and prompts you for some new-project related questions.
+Once you've answered those, a skeleton project directory will have been created for you. 
 
 Once the first clone is done you can simply run:
 
