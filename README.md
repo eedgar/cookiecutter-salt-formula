@@ -25,7 +25,7 @@ cookiecutter ~/.cookiecutters/cookiecutter-salt-formula'
 
 ```bash
 cd ${DIRECTORY_YOU_WISH_TO_CREATE_THE_SALT-FORMULA_IN}
-cookiecutter ~/.cookiecutters/cookiecutter-salt-formula'
+cookiecutter ~/.cookiecutters/cookiecutter-salt-formula
 ```
 
 Follow the prompts for the win!
