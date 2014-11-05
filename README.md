@@ -10,7 +10,7 @@
 ## Usage
 
 ```bash
-cookiecutter https://github.com/mahmoudimus/cookiecutter-slim-berkshelf-vagrant.git
+cookiecutter https://github.com/ministryofjustice/cookiecutter-salt-formula.git
 ```
 
 This will clone `cookiecutter-salt-formula` in your `~/.cookiecutters` directory.
