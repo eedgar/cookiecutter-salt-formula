@@ -18,7 +18,7 @@ This will clone `cookiecutter-salt-formula` in your `~/.cookiecutters` directory
 Once the first clone is done you can simply run:
 
 ```bash
-cookiecutter ~/.cookiecutters/cookiecutter-salt-formula'
+cookiecutter ~/.cookiecutters/cookiecutter-salt-formula
 ```
 
 ### Create a new saltstack formula
