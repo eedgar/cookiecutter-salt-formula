@@ -1,50 +1,35 @@
-# cookiecutter-salt-formula
+cookiecutter-salt-formula
+=========================
 
-[Cookiecutter](https://github.com/audreyr/cookiecutter) repository for generating saltstack formula repository skeleton.
+[Cookiecutter][cookiecutter] template for creating an [saltstack][saltstack] formula
+alongside [Test-Kitchen][test-kitchen].
 
-## Install cookiecutter
+I have grown used to, and love, developing Chef Cookbooks using a TDD
+approach with [Test-Kitchen][test-kitchen] and [Serverspec][serverspec] and
+wanted to develop my saltstack formulas in a similar fashion.  This
+[Cookiecutter][cookiecutter] template quickly scaffolds everything needed to TDD
+an [Saltstack][saltstack] role.
 
-- Install cookiecutter: [howto](http://cookiecutter.readthedocs.org/en/latest/installation.html)
-- Read about Cookiecutter's [features](https://github.com/audreyr/cookiecutter#features)
+Usage
+-----
 
-## Usage
+Generate an saltstack role TDD-syle with:
 
-```bash
-cd ${DIRECTORY_YOU_WISH_TO_CREATE_THE_SALT-FORMULA_IN}
-```
+    cookiecutter https://github.com/eedgar/cookiecutter-salt-formula
 
-Run
+Once the Saltstack role project has been setup `cd` into it and get the Rubygems
+needed for running [Test-Kitchen][test-kitchen] with:
 
-```bash
-cookiecutter https://github.com/ministryofjustice/cookiecutter-salt-formula.git
-```
+    bundle install
 
-This will clone `cookiecutter-salt-formula` in your `~/.cookiecutters` directory and prompts you for some new-project related questions.
-Once you've answered those, a skeleton project directory will have been created for you. 
+Edit the `.kitchen.yml` to suit your specific needs, e.g. change the platform - the
+template defaults to CentOS 7
 
-Once the first clone is done you can simply run:
+If you're not familiar with [Test-Kitchen][test-kitchen] just run:
 
-```bash
-cookiecutter ~/.cookiecutters/cookiecutter-salt-formula
-```
+    bundle exec kitchen -h
 
-### Create a new saltstack formula
-
-```bash
-cd ${DIRECTORY_YOU_WISH_TO_CREATE_THE_SALT-FORMULA_IN}
-cookiecutter ~/.cookiecutters/cookiecutter-salt-formula
-```
-
-Follow the prompts for the win!
-
-### Local configuration
-
-You can also create your own ```cookiecutter``` configuration in ```~/.cookiecutterrc```:
-
-```bash
-default_context:
-    full_name: "Johnny Bravo"
-    email: "johnny.bravo@gmail.com"
-    github_username: "johnnybravo"
-```
-
+[cookiecutter]:       https://github.com/audreyr/cookiecutter
+[saltstack]:          http://www.saltstack.com
+[test-kitchen]:       https://github.com/test-kitchen/test-kitchen
+[serverspec]:         http://serverspec.org/

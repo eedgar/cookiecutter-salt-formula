@@ -1,0 +1,22 @@
+{{'{%'}} import_yaml "{{cookiecutter.repo_name.split('-')[0]}}/defaults.yaml" as defaults {{'%}'}}
+{{'{%'}} import_yaml "{{cookiecutter.repo_name.split('-')[0]}}/osmap.yaml" as osmap {{'%}'}}
+{{'{%'}} import_yaml "{{cookiecutter.repo_name.split('-')[0]}}/codenamemap.yaml" as codemap {{'%}'}}
+{% raw %}
+{# get the settings for the os_family grain #}
+{% set osfam = salt['grains.filter_by'](osmap) or {} %}
+{# get the settings for the oscodename grain, os_family data will override
+    oscodename data #}
+{% set oscode = salt['grains.filter_by'](codemap,
+                                         grain='oscodename',
+                                         merge=osfam) or {} %}
+
+{# merge the os family/codename specific data over the defaults #}
+{% endraw %}{{'{%'}} do defaults.{{cookiecutter.repo_name.split('-')[0]}}.update(oscode) {{'%}'}}
+{% raw %}
+{# merge the pillar:lookup dict into the defaults/os specific dict #}
+{% endraw %}{{'{%'}} set lookup = salt['pillar.get']('{{cookiecutter.repo_name.split('-')[0]}}:lookup',
+                                   default=defaults.{{cookiecutter.repo_name.split('-')[0]}},
+                                   merge=True) {{'%}'}}
+
+{{'{#'}} merge the actual {{cookiecutter.repo_name.split('-')[0]}} pillar into the above combined dict {{'#}'}}
+{{'{%'}} set {{cookiecutter.repo_name.split('-')[0]}} = salt['pillar.get']('{{cookiecutter.repo_name.split('-')[0]}}', default=lookup, merge=True) {{'%}'}}

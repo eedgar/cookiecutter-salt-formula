@@ -1,0 +1,3 @@
+# Example pillar data for the {{cookiecutter.repo_name.split('-')[0]}} formula
+#
+{{cookiecutter.repo_name.split('-')[0]}}:

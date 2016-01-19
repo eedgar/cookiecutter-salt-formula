@@ -2,6 +2,13 @@
 provisioner:
   name: salt_solo
   formula: {{cookiecutter.repo_name.split('-')[0]}}
+  pillars-from-files:
+    {{cookiecutter.repo_name.split('-')[0]}}.sls: pillar.example
+  pillars:
+    top.sls:
+      base:
+        "*":
+          - {{cookiecutter.repo_name.split('-')[0]}}
   state_top:
     base:
       '*':
